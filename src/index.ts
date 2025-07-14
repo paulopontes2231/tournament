@@ -6,8 +6,8 @@ import { connection } from "mongoose";
 dotenv.config();
 
 const port = 3000;
-const playersRoute = require("../../tournament-backend/src/routes/players");
-const sudokuRoute = require("../../tournament-backend/src/routes/sudoku");
+const playersRoute = require("./routes/players");
+const sudokuRoute = require("./routes/sudoku");
 
 const app = express();
 const uri = process.env.MONGODB_URI;
