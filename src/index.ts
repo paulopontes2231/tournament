@@ -6,8 +6,7 @@ import { connection } from "mongoose";
 dotenv.config();
 
 const port = 3000;
-const playersRoute = require("./routes/players");
-const sudokuRoute = require("./routes/sudoku");
+const matchesRoute = require("./routes/matches");
 
 const app = express();
 const uri = process.env.MONGODB_URI;
@@ -28,12 +27,9 @@ app.listen(port, () => {
         }
     }
     console.log("Connected to MongoDB successfully!");
-    const dbConnection = connection.useDb(db);
-    console.log("Using database:", dbConnection.name);
 });
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb' }));
 
-app.use('/', playersRoute);
-app.use('/', sudokuRoute);
+app.use('/', matchesRoute);
