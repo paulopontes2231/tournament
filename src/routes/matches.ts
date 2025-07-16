@@ -71,5 +71,16 @@ router.put("/match/:id", async (req: any, res: any) => {
   }
 });
 
+router.delete("/match/:id", async (req: any, res: any) => {
+  try {
+    const match = await Match.findByIdAndDelete(req.params.id);
+    if (!match) {
+      return res.status(404).json({ error: "Match not found" });
+    }
+    res.json({ message: "Match deleted successfully" });
+  } catch (err: any) {
+    res.status(500).json({ error: "Failed to delete match: " + err.message });
+  }
+});
 
 module.exports = router;

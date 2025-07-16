@@ -4,7 +4,7 @@ const matchSchema = new mongoose.Schema({
     teamA: { type: String, required: true },
     teamB: { type: String, required: true },
     startTime: { type: String, required: true,  },
-    round: { type: String, required: true,  },
+    round: { type: String  },
     gameNumber: { type: String, required: true },
     field: { type: String, required: true,  },
     score: { type: Array, required: true },
